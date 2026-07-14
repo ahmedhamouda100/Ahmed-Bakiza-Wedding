@@ -9,17 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Cormorant+Garamond:wght@400;500;600&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ivory:#faf7f2; --ivory-2:#f2ede3;
-    --gold:#a68a5b; --gold-light:#c9b795; --gold-deep:#8c7550;
-    --ink:#4a4640; --ink-soft:#766f60;
+    --ivory:#faf9f6; --ivory-2:#f2f0ea;
+    --gold:#b0a999; --gold-light:#ddd8cc; --gold-deep:#5c5750;
+    --ink:#3d3a35; --ink-soft:#837c70;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{background:var(--ivory);color:var(--ink);font-family:'Cormorant Garamond',serif;overflow-x:hidden;}
   body{
     background:
-      radial-gradient(circle at 15% 10%, rgba(201,183,149,0.18), transparent 40%),
-      radial-gradient(circle at 85% 90%, rgba(201,183,149,0.16), transparent 40%),
+      radial-gradient(circle at 15% 10%, rgba(221,216,204,0.18), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(221,216,204,0.16), transparent 40%),
+      radial-gradient(circle at 0 0, transparent 24%, rgba(176,169,153,0.09) 25%, rgba(176,169,153,0.09) 26%, transparent 27%, transparent 74%, rgba(176,169,153,0.09) 75%, rgba(176,169,153,0.09) 76%, transparent 77%),
+      radial-gradient(circle at 24px 24px, transparent 24%, rgba(176,169,153,0.09) 25%, rgba(176,169,153,0.09) 26%, transparent 27%, transparent 74%, rgba(176,169,153,0.09) 75%, rgba(176,169,153,0.09) 76%, transparent 77%),
       linear-gradient(180deg, var(--ivory) 0%, var(--ivory-2) 100%);
+    background-size:auto,auto,48px 48px,48px 48px,auto;
     min-height:100vh; display:flex; justify-content:center; align-items:flex-start; padding:40px 14px;
   }
 
@@ -27,14 +30,14 @@
   .particle{position:absolute;bottom:-20px;width:5px;height:5px;border-radius:50%;background:var(--gold-light);opacity:0;animation:float-up linear infinite;}
   @keyframes float-up{0%{transform:translateY(0) scale(0.6);opacity:0;}10%{opacity:.7;}85%{opacity:.5;}100%{transform:translateY(-115vh) scale(1);opacity:0;}}
 
-  .card{position:relative;z-index:1;width:100%;max-width:500px;background:rgba(255,253,248,0.55);border:1px solid rgba(166,138,91,0.35);box-shadow:0 8px 40px rgba(140,117,80,0.15);padding:80px 24px 40px;overflow:hidden;min-height:380px;border-radius:50% 50% 0 0/90px 90px 0 0;}
+  .card{position:relative;z-index:1;width:100%;max-width:600px;background:rgba(255,253,248,0.55);border:1px solid rgba(176,169,153,0.35);box-shadow:0 8px 40px rgba(92,87,80,0.15);padding:64px 10px 40px;overflow:hidden;min-height:380px;border-radius:50% 50% 0 0/90px 90px 0 0;}
 
   .corner{position:absolute;width:46px;height:46px;opacity:.9;}
   .corner svg{width:100%;height:100%;}
   .tl{top:8px;left:8px;} .tr{top:8px;right:8px;transform:scaleX(-1);}
   .bl{bottom:8px;left:8px;transform:scaleY(-1);} .br{bottom:8px;right:8px;transform:scale(-1,-1);}
   .tl,.tr{display:none;}
-  .card::before,.card::after{content:'';position:absolute;top:0;bottom:0;width:11px;opacity:.4;background-image:repeating-linear-gradient(135deg,var(--gold-light) 0 3px,transparent 3px 7px),repeating-linear-gradient(45deg,var(--gold-light) 0 3px,transparent 3px 7px);pointer-events:none;}
+  .card::before,.card::after{content:'';position:absolute;top:0;bottom:0;width:9px;opacity:.4;background-image:repeating-linear-gradient(135deg,var(--gold-light) 0 3px,transparent 3px 7px),repeating-linear-gradient(45deg,var(--gold-light) 0 3px,transparent 3px 7px);pointer-events:none;}
   .card::before{left:0;}
   .card::after{right:0;}
 
@@ -52,8 +55,8 @@
   .cover-screen.leaving{opacity:0;transform:scale(.94);}
   .envelope-scene{perspective:1100px;display:flex;flex-direction:column;align-items:center;}
   .envelope{position:relative;width:250px;height:165px;margin:0 auto;}
-  .env-back{position:absolute;inset:0;background:linear-gradient(160deg,#fbf6ea,#f1e6cc);border:1px solid var(--gold);box-shadow:0 12px 32px rgba(140,117,80,0.2);}
-  .env-back::after{content:'';position:absolute;left:10px;right:10px;top:78px;bottom:14px;border:1px solid rgba(166,138,91,0.35);}
+  .env-back{position:absolute;inset:0;background:linear-gradient(160deg,#fbf6ea,#f1e6cc);border:1px solid var(--gold);box-shadow:0 12px 32px rgba(92,87,80,0.2);}
+  .env-back::after{content:'';position:absolute;left:10px;right:10px;top:78px;bottom:14px;border:1px solid rgba(176,169,153,0.35);}
   .env-names{position:absolute;left:0;right:0;bottom:24px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;letter-spacing:.5px;color:var(--ink-soft);}
   .env-flap{position:absolute;top:0;left:0;width:100%;height:86px;background:linear-gradient(160deg,var(--gold-light),var(--gold));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform 1s cubic-bezier(.6,0,.28,1);box-shadow:0 3px 8px rgba(0,0,0,.1);z-index:3;}
   .env-seal{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-light),var(--gold-deep));display:flex;align-items:center;justify-content:center;color:#fff8ea;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:4;transition:opacity .4s ease, transform .4s ease;}
@@ -67,7 +70,7 @@
   .wreath svg{width:100%;height:100%;overflow:visible;}
   .monogram-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
   .photo-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-  .photo-frame img{width:168px;height:168px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid var(--gold-light);box-shadow:0 4px 18px rgba(140,117,80,.25);}
+  .photo-frame img{width:168px;height:168px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid var(--gold-light);box-shadow:0 4px 18px rgba(92,87,80,.25);}
   .monogram{font-family:'Playfair Display',serif;font-size:38px;font-weight:600;
     background:linear-gradient(120deg,var(--gold-deep),var(--gold-light),var(--gold-deep));
     background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite;}
@@ -85,20 +88,27 @@
   /* ---------- SHARED INVITE CONTENT ---------- */
   .eyebrow-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-soft);text-align:center;}
   .eyebrow-ar{font-family:'Amiri',serif;font-size:16px;color:var(--ink-soft);text-align:center;}
+  .blessing-ar{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:28px;line-height:1.5;padding-bottom:2px;text-align:center;background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-deep) 42%,var(--gold) 47%,#fff6e6 50%,var(--gold) 53%,var(--gold-deep) 58%,var(--gold-deep) 100%);background-size:280% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:reveal 1s ease forwards, shimmer 3.2s linear infinite .15s;text-shadow:0 1px 3px rgba(92,87,80,.25);}
+  .floral-divider{width:100%;display:flex;justify-content:center;align-items:center;margin:8px 0 4px;opacity:.85;}
+  .floral-divider svg{width:170px;height:24px;}
+  .floral-divider path{stroke:var(--gold);}
+  .floral-divider .fd-bud{fill:var(--gold-deep);}
+  .floral-divider .fd-petal{fill:var(--gold-light);}
 
-  .couple-row{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin-top:14px;}
+  .couple-row{display:flex;align-items:flex-end;justify-content:center;gap:2px;margin-top:14px;}
+  #view-ar .couple-row{gap:16px;}
   .person{display:flex;flex-direction:column;align-items:center;}
-  .role-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
-  .role-ar{font-family:'Amiri',serif;font-size:13px;color:var(--ink-soft);margin-bottom:4px;}
-  .pname-en{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:var(--gold-deep);line-height:1.15;white-space:nowrap;}
-  .pname-ar{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:21px;color:var(--gold-deep);line-height:1.6;padding-bottom:4px;white-space:nowrap;}
+  .role-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;}
+  .role-ar{font-family:'Amiri',serif;font-size:20px;color:var(--ink-soft);margin-bottom:4px;}
+  .pname-en{font-family:'Playfair Display',serif;font-weight:700;font-size:33px;color:var(--gold-deep);line-height:1.15;white-space:nowrap;word-spacing:3px;}
+  .pname-ar{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:42px;color:var(--gold-deep);line-height:1.3;padding-bottom:4px;white-space:nowrap;word-spacing:8px;}
   
-  .name-eg{background:linear-gradient(120deg,#a3182f 0%,#a68a5b 45%,#1c1c1c 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite;}
-  .name-ps{background:linear-gradient(120deg,#1c1c1c 0%,#a68a5b 35%,#1f6b41 65%,#a3182f 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite;}
-  .flag-mark{margin-top:8px;font-size:19px;line-height:1;filter:drop-shadow(0 1px 2px rgba(140,117,80,.35));}
-  .couple-amp{font-style:italic;font-size:19px;color:var(--gold);padding-bottom:2px;}
-  .olive-wrap{display:flex;justify-content:center;margin:4px 0 0;opacity:.8;}
-  .olive-svg{width:150px;height:auto;display:block;}
+  .name-eg{background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-deep) 42%,var(--gold) 47%,#fff6e6 50%,var(--gold) 53%,var(--gold-deep) 58%,var(--gold-deep) 100%);background-size:280% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.2s linear infinite;text-shadow:0 1px 3px rgba(92,87,80,.25);word-spacing:-3px;}
+  .name-ps{background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-deep) 42%,var(--gold) 47%,#fff6e6 50%,var(--gold) 53%,var(--gold-deep) 58%,var(--gold-deep) 100%);background-size:280% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.2s linear infinite;text-shadow:0 1px 3px rgba(92,87,80,.25);}
+  .flag-mark{margin-top:8px;font-size:19px;line-height:1;}
+  .couple-amp{font-style:italic;font-size:15px;color:var(--gold);padding-bottom:2px;}
+  
+  
 
   .divider{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0;}
   .divider .line{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
@@ -117,10 +127,10 @@
   .map-btn:active{background:var(--gold);color:#fff;}
   .map-btn.ar{font-family:'Amiri',serif;text-transform:none;letter-spacing:0;font-size:17px;}
 
-  .notes-box{margin-top:20px;padding:16px 18px 6px;border:1px solid rgba(166,138,91,.35);background:rgba(166,138,91,.07);width:100%;max-width:320px;}
+  .notes-box{margin-top:20px;padding:16px 18px 6px;border:1px solid rgba(176,169,153,.35);background:rgba(176,169,153,.07);width:100%;max-width:320px;}
   .notes-title-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-deep);text-align:center;margin-bottom:12px;}
   .notes-title-ar{font-family:'Amiri',serif;font-size:15px;color:var(--gold-deep);text-align:center;margin-bottom:12px;}
-  .note-row{display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid rgba(166,138,91,.25);}
+  .note-row{display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid rgba(176,169,153,.25);}
   .note-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:10px;}
   .note-icon{width:20px;height:20px;color:var(--gold-deep);}
   .note-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.3;}
@@ -145,10 +155,10 @@
   <div class="particles" id="particles"></div>
 
   <div class="card">
-    <div class="corner tl"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#a68a5b" stroke-width="1.2" fill="none"/><circle cx="10" cy="2" r="2" fill="#a68a5b"/></svg></div>
-    <div class="corner tr"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#a68a5b" stroke-width="1.2" fill="none"/><circle cx="10" cy="2" r="2" fill="#a68a5b"/></svg></div>
-    <div class="corner bl"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#a68a5b" stroke-width="1.2" fill="none"/><circle cx="10" cy="2" r="2" fill="#a68a5b"/></svg></div>
-    <div class="corner br"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#a68a5b" stroke-width="1.2" fill="none"/><circle cx="10" cy="2" r="2" fill="#a68a5b"/></svg></div>
+    <div class="corner tl"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#b0a999" stroke-width="1.2" fill="none"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(45 10 2)" fill="#ddd8cc"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(-45 10 2)" fill="#ddd8cc"/><circle cx="10" cy="2" r="2" fill="#b0a999"/></svg></div>
+    <div class="corner tr"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#b0a999" stroke-width="1.2" fill="none"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(45 10 2)" fill="#ddd8cc"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(-45 10 2)" fill="#ddd8cc"/><circle cx="10" cy="2" r="2" fill="#b0a999"/></svg></div>
+    <div class="corner bl"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#b0a999" stroke-width="1.2" fill="none"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(45 10 2)" fill="#ddd8cc"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(-45 10 2)" fill="#ddd8cc"/><circle cx="10" cy="2" r="2" fill="#b0a999"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 46 46"><path d="M2 44 V10 Q2 2 10 2 H44" stroke="#b0a999" stroke-width="1.2" fill="none"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(45 10 2)" fill="#ddd8cc"/><ellipse cx="10" cy="2" rx="4.5" ry="2.2" transform="rotate(-45 10 2)" fill="#ddd8cc"/><circle cx="10" cy="2" r="2" fill="#b0a999"/></svg></div>
 
     <button class="sound-toggle" id="soundToggle" aria-label="Toggle music" type="button">
       <svg class="icon-on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
@@ -174,9 +184,9 @@
     <div id="landing" class="screen">
       <div class="section s1 wreath">
         <svg viewBox="0 0 300 300">
-          <path d="M150,260 Q30,150 150,40" fill="none" stroke="#a68a5b" stroke-width="1.1" opacity="0.7"/>
-          <path d="M150,260 Q270,150 150,40" fill="none" stroke="#a68a5b" stroke-width="1.1" opacity="0.7"/>
-          <g fill="rgba(166,138,91,0.55)" stroke="#8c7550" stroke-width="0.5">
+          <path d="M150,260 Q30,150 150,40" fill="none" stroke="#b0a999" stroke-width="1.1" opacity="0.7"/>
+          <path d="M150,260 Q270,150 150,40" fill="none" stroke="#b0a999" stroke-width="1.1" opacity="0.7"/>
+          <g fill="rgba(176,169,153,0.55)" stroke="#5c5750" stroke-width="0.5">
             <ellipse cx="119" cy="227" rx="3.2" ry="11" transform="rotate(-20 119 227)"/>
             <ellipse cx="100" cy="194" rx="3.2" ry="11" transform="rotate(-48 100 194)"/>
             <ellipse cx="91" cy="161" rx="3.2" ry="11" transform="rotate(-80 91 161)"/>
@@ -190,7 +200,7 @@
             <ellipse cx="195" cy="95" rx="3.2" ry="11" transform="rotate(140 195 95)"/>
             <ellipse cx="172" cy="62" rx="3.2" ry="11" transform="rotate(166 172 62)"/>
           </g>
-          <g fill="#c9b795" opacity="0.9">
+          <g fill="#ddd8cc" opacity="0.9">
             <circle cx="150" cy="40" r="4"/><circle cx="142" cy="36" r="3"/><circle cx="158" cy="36" r="3"/><circle cx="150" cy="30" r="3"/>
             <circle cx="150" cy="260" r="4"/><circle cx="142" cy="264" r="3"/><circle cx="158" cy="264" r="3"/>
           </g>
@@ -210,13 +220,13 @@
       <button class="back-btn" data-target="landing">← Language</button>
 
       <div class="section s1 eyebrow-en">Together, With Joy</div>
+      <div class="floral-divider"><svg viewBox="0 0 260 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M130 20 C112 10,94 10,76 20 C58 30,40 30,14 19" stroke-width="1.1"/><path d="M130 20 C148 10,166 10,184 20 C202 30,220 30,246 19" stroke-width="1.1"/><ellipse class="fd-petal" cx="94" cy="13" rx="5" ry="2.4" transform="rotate(-20 94 13)"/><ellipse class="fd-petal" cx="66" cy="24" rx="5" ry="2.4" transform="rotate(20 66 24)"/><ellipse class="fd-petal" cx="166" cy="13" rx="5" ry="2.4" transform="rotate(20 166 13)"/><ellipse class="fd-petal" cx="194" cy="24" rx="5" ry="2.4" transform="rotate(-20 194 24)"/><circle class="fd-bud" cx="130" cy="19" r="3.4"/><circle class="fd-petal" cx="123" cy="14" r="2.6"/><circle class="fd-petal" cx="137" cy="14" r="2.6"/><circle class="fd-petal" cx="123" cy="23" r="2.6"/><circle class="fd-petal" cx="137" cy="23" r="2.6"/></svg></div>
 
       <div class="section s2 couple-row">
         <div class="person"><div class="role-en">Groom</div><div class="pname-en name-eg">Ahmed Hamouda</div><div class="flag-mark">🇪🇬</div></div>
         <div class="couple-amp">&amp;</div>
         <div class="person"><div class="role-en">Bride</div><div class="pname-en name-ps">Bakiza Bassem</div><div class="flag-mark">🇵🇸</div></div>
       </div>
-      <div class="olive-wrap"><svg class="olive-svg" viewBox="0 0 220 46" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="var(--gold-deep)" stroke-width="1.4" stroke-linecap="round"><path d="M110 23 C90 15,70 18,50 8"/><path d="M110 23 C90 30,70 28,50 36"/></g><g fill="var(--gold-light)" stroke="var(--gold-deep)" stroke-width=".8"><ellipse cx="95" cy="16" rx="6" ry="3" transform="rotate(-20 95 16)"/><ellipse cx="78" cy="13" rx="6" ry="3" transform="rotate(-15 78 13)"/><ellipse cx="60" cy="10" rx="6" ry="3" transform="rotate(-10 60 10)"/><ellipse cx="95" cy="30" rx="6" ry="3" transform="rotate(20 95 30)"/><ellipse cx="78" cy="33" rx="6" ry="3" transform="rotate(15 78 33)"/><ellipse cx="60" cy="36" rx="6" ry="3" transform="rotate(10 60 36)"/></g><circle cx="110" cy="23" r="3" fill="var(--gold-deep)"/><g transform="translate(220,0) scale(-1,1)"><g fill="none" stroke="var(--gold-deep)" stroke-width="1.4" stroke-linecap="round"><path d="M110 23 C90 15,70 18,50 8"/><path d="M110 23 C90 30,70 28,50 36"/></g><g fill="var(--gold-light)" stroke="var(--gold-deep)" stroke-width=".8"><ellipse cx="95" cy="16" rx="6" ry="3" transform="rotate(-20 95 16)"/><ellipse cx="78" cy="13" rx="6" ry="3" transform="rotate(-15 78 13)"/><ellipse cx="60" cy="10" rx="6" ry="3" transform="rotate(-10 60 10)"/><ellipse cx="95" cy="30" rx="6" ry="3" transform="rotate(20 95 30)"/><ellipse cx="78" cy="33" rx="6" ry="3" transform="rotate(15 78 33)"/><ellipse cx="60" cy="36" rx="6" ry="3" transform="rotate(10 60 36)"/></g></g></svg></div>
 
       <div class="section s3" style="width:100%;">
         <div class="divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
@@ -262,14 +272,14 @@
     <div id="view-ar" class="screen" dir="rtl">
       <button class="back-btn" data-target="landing">→ اللغة</button>
 
-      <div class="section s1 eyebrow-ar">بمشيئة الله</div>
+      <div class="section s1 blessing-ar" style="width:100%;">بارك الله لهما وبارك عليهما وجمع بينهما في خير</div>
+      <div class="floral-divider"><svg viewBox="0 0 260 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M130 20 C112 10,94 10,76 20 C58 30,40 30,14 19" stroke-width="1.1"/><path d="M130 20 C148 10,166 10,184 20 C202 30,220 30,246 19" stroke-width="1.1"/><ellipse class="fd-petal" cx="94" cy="13" rx="5" ry="2.4" transform="rotate(-20 94 13)"/><ellipse class="fd-petal" cx="66" cy="24" rx="5" ry="2.4" transform="rotate(20 66 24)"/><ellipse class="fd-petal" cx="166" cy="13" rx="5" ry="2.4" transform="rotate(20 166 13)"/><ellipse class="fd-petal" cx="194" cy="24" rx="5" ry="2.4" transform="rotate(-20 194 24)"/><circle class="fd-bud" cx="130" cy="19" r="3.4"/><circle class="fd-petal" cx="123" cy="14" r="2.6"/><circle class="fd-petal" cx="137" cy="14" r="2.6"/><circle class="fd-petal" cx="123" cy="23" r="2.6"/><circle class="fd-petal" cx="137" cy="23" r="2.6"/></svg></div>
 
       <div class="section s2 couple-row">
         <div class="person"><div class="role-ar">العريس</div><div class="pname-ar name-eg">أحمد حموده</div><div class="flag-mark">🇪🇬</div></div>
         <div class="couple-amp">&amp;</div>
         <div class="person"><div class="role-ar">العروسة</div><div class="pname-ar name-ps">باكزة باسم</div><div class="flag-mark">🇵🇸</div></div>
       </div>
-      <div class="olive-wrap"><svg class="olive-svg" viewBox="0 0 220 46" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="var(--gold-deep)" stroke-width="1.4" stroke-linecap="round"><path d="M110 23 C90 15,70 18,50 8"/><path d="M110 23 C90 30,70 28,50 36"/></g><g fill="var(--gold-light)" stroke="var(--gold-deep)" stroke-width=".8"><ellipse cx="95" cy="16" rx="6" ry="3" transform="rotate(-20 95 16)"/><ellipse cx="78" cy="13" rx="6" ry="3" transform="rotate(-15 78 13)"/><ellipse cx="60" cy="10" rx="6" ry="3" transform="rotate(-10 60 10)"/><ellipse cx="95" cy="30" rx="6" ry="3" transform="rotate(20 95 30)"/><ellipse cx="78" cy="33" rx="6" ry="3" transform="rotate(15 78 33)"/><ellipse cx="60" cy="36" rx="6" ry="3" transform="rotate(10 60 36)"/></g><circle cx="110" cy="23" r="3" fill="var(--gold-deep)"/><g transform="translate(220,0) scale(-1,1)"><g fill="none" stroke="var(--gold-deep)" stroke-width="1.4" stroke-linecap="round"><path d="M110 23 C90 15,70 18,50 8"/><path d="M110 23 C90 30,70 28,50 36"/></g><g fill="var(--gold-light)" stroke="var(--gold-deep)" stroke-width=".8"><ellipse cx="95" cy="16" rx="6" ry="3" transform="rotate(-20 95 16)"/><ellipse cx="78" cy="13" rx="6" ry="3" transform="rotate(-15 78 13)"/><ellipse cx="60" cy="10" rx="6" ry="3" transform="rotate(-10 60 10)"/><ellipse cx="95" cy="30" rx="6" ry="3" transform="rotate(20 95 30)"/><ellipse cx="78" cy="33" rx="6" ry="3" transform="rotate(15 78 33)"/><ellipse cx="60" cy="36" rx="6" ry="3" transform="rotate(10 60 36)"/></g></g></svg></div>
 
       <div class="section s3" style="width:100%;">
         <div class="divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
